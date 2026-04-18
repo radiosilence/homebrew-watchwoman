@@ -1,21 +1,32 @@
 class Watchwoman < Formula
   desc "Drop-in watchman replacement that doesn't eat your RAM"
   homepage "https://github.com/radiosilence/watchwoman"
+  version "0.1.1"
   license any_of: ["MIT", "Apache-2.0"]
-  head "https://github.com/radiosilence/watchwoman.git", branch: "main"
 
-  depends_on "rust" => :build
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.1.1/watchwoman-0.1.1-aarch64-apple-darwin.tar.gz"
+      sha256 "49ceee1b143c35a26adb51446f23e1cad748dc33ee9831428a14232c7f9f67a0"
+    else
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.1.1/watchwoman-0.1.1-x86_64-apple-darwin.tar.gz"
+      sha256 "5ca06a85cc7629fe77efc85138925dfe218d3bf93feafad84e177db8d3975d8c"
+    end
+  end
+
+  on_linux do
+    if Hardware::CPU.arm?
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.1.1/watchwoman-0.1.1-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "cf2d776bdaa61d725ad9582641f95a01b6645f7353efafc6516120fba707852e"
+    else
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.1.1/watchwoman-0.1.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "643c46d7888d57cdfeb6a8c2b7113d0a2fb0b3f114a4480d0d3d3ba45bacd040"
+    end
+  end
 
   def install
-    cd "crates/watchwoman" do
-      system "cargo", "install", *std_cargo_args,
-             "--bin", "watchwoman",
-             "--bin", "watchman"
-    end
-
-    # Shell completions. Generated at install-time so they reflect the
-    # exact subcommand set that shipped.
-    generate_completions_from_executable(bin/"watchwoman", "completion")
+    bin.install "watchwoman"
+    bin.install "watchman"
   end
 
   def caveats
