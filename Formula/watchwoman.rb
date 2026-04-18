@@ -1,31 +1,31 @@
 class Watchwoman < Formula
   desc "Drop-in watchman replacement that doesn't eat your RAM"
   homepage "https://github.com/radiosilence/watchwoman"
-  version "0.2.1"
+  version "0.2.2"
   license any_of: ["MIT", "Apache-2.0"]
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/radiosilence/watchwoman/releases/download/v0.2.1/watchwoman-0.2.1-aarch64-apple-darwin.tar.gz"
-      sha256 "9aa04686127e5fcdb5601686deb317a592e0082511cfee6ebb876e325fa32399"
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.2.2/watchwoman-0.2.2-aarch64-apple-darwin.tar.gz"
+      sha256 "53ab71e179fb23c0634f311d179bd2612beb9c93852cd223599f77d3c42631a3"
     else
-      url "https://github.com/radiosilence/watchwoman/releases/download/v0.2.1/watchwoman-0.2.1-x86_64-apple-darwin.tar.gz"
-      sha256 "13907066a8945c226978097aeed6ad3e7e862233b69f54ce6315be88c0e7b6f6"
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.2.2/watchwoman-0.2.2-x86_64-apple-darwin.tar.gz"
+      sha256 "cfa224ecb1f125815042d48188e6468dd99048036c63a7c87d13b05783838792"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/radiosilence/watchwoman/releases/download/v0.2.1/watchwoman-0.2.1-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "a2785772dad3a18a784e83fc9300277f65085e61db5d395a74ea68cd699c4372"
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.2.2/watchwoman-0.2.2-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "0e3b71ef3973159429123f1adf1a40f136475b65dc4edc5d40fc98a8fc0e7a6c"
     else
-      url "https://github.com/radiosilence/watchwoman/releases/download/v0.2.1/watchwoman-0.2.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "d05b3ef729e5d1bbc6eecd72068ce22828f0595eaeeaa19b8d1ee4907d76e8d3"
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.2.2/watchwoman-0.2.2-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "116079b7cff196b5bd6a6d308642f278d3eefc26392e712346b35b543c879fe9"
     end
   end
 
   def install
-    %w[watchwoman watchman watchman-wait watchman-make].each do |b|
+    %w[watchwoman watchman watchman-wait watchman-make watchman-diag watchmanctl].each do |b|
       bin.install b
     end
   end
