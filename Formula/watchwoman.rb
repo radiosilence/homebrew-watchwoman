@@ -1,26 +1,26 @@
 class Watchwoman < Formula
   desc "Drop-in watchman replacement that doesn't eat your RAM"
   homepage "https://github.com/radiosilence/watchwoman"
-  version "0.5.0"
+  version "0.5.1"
   license any_of: ["MIT", "Apache-2.0"]
 
   on_macos do
     if Hardware::CPU.arm?
-      url "https://github.com/radiosilence/watchwoman/releases/download/v0.5.0/watchwoman-0.5.0-aarch64-apple-darwin.tar.gz"
-      sha256 "1c92313ab30b20f2c5fe55cac73144f1bc4b5057a46de4a034a3a1d1337db3fe"
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.5.1/watchwoman-0.5.1-aarch64-apple-darwin.tar.gz"
+      sha256 "068a63113ddc5a0f3098578235aa788d25acb7add5c4f061fb816e16a128619a"
     else
-      url "https://github.com/radiosilence/watchwoman/releases/download/v0.5.0/watchwoman-0.5.0-x86_64-apple-darwin.tar.gz"
-      sha256 "8c7d5e6fff1b2a0aa0d76f2d0162c449490d4ef6e2c9c17a4866eebbb6b79dd0"
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.5.1/watchwoman-0.5.1-x86_64-apple-darwin.tar.gz"
+      sha256 "b68bafa1e7c8eb8ee16042718ac115e4ba75ad317ecb9d9bf2f0ca5c626621f2"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/radiosilence/watchwoman/releases/download/v0.5.0/watchwoman-0.5.0-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "4f3ed92fef68f7c67e9b765c2d8a6170884d4efdc0d250824a1d622ee0d4475a"
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.5.1/watchwoman-0.5.1-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "f89362f285379eb1b3d90342bff87068347b17e688825e1ce4bae0796ba4a9eb"
     else
-      url "https://github.com/radiosilence/watchwoman/releases/download/v0.5.0/watchwoman-0.5.0-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "cd4c4a2872da66cf9ddc558018f89cc70bb4db485c6185bc49dee51248f7aed8"
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.5.1/watchwoman-0.5.1-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "0870a7cfe7094eb0a429a1dc4c224a5a380231b3c701e5b25dd4d671b20a8d19"
     end
   end
 
