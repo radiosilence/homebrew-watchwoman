@@ -1,26 +1,22 @@
 class Watchwoman < Formula
   desc "Drop-in watchman replacement that doesn't eat your RAM"
   homepage "https://github.com/radiosilence/watchwoman"
-  version "0.8.1"
+  version "0.8.2"
   license any_of: ["MIT", "Apache-2.0"]
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/radiosilence/watchwoman/releases/download/v0.8.1/watchwoman-0.8.1-aarch64-apple-darwin.tar.gz"
-      sha256 "7e16dab177d49a6a4cd35b54977128e77c1a087bc9c078310b69971de38c80b7"
-    else
-      url "https://github.com/radiosilence/watchwoman/releases/download/v0.8.1/watchwoman-0.8.1-x86_64-apple-darwin.tar.gz"
-      sha256 "325695e12849d759ae1fb7ffc262c931e5c5a030f07f45eb3cadc278d66dc1cc"
-    end
+    depends_on arch: :arm64
+    url "https://github.com/radiosilence/watchwoman/releases/download/v0.8.2/watchwoman-0.8.2-aarch64-apple-darwin.tar.gz"
+    sha256 "4283439a4b83c4bff23b32f3c481a35f7b7f6faba85b4f7b7cf2bfc6058ba889"
   end
 
   on_linux do
     if Hardware::CPU.arm?
-      url "https://github.com/radiosilence/watchwoman/releases/download/v0.8.1/watchwoman-0.8.1-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "6e369a7f644ecd1b2cbaec482be3ad80ca972f1eb297c1197ef0dc7f2daaa136"
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.8.2/watchwoman-0.8.2-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "9ebc3b12002793f340e56495ba0fc857f8ed84c1f68dbf87946a2d268d54ece2"
     else
-      url "https://github.com/radiosilence/watchwoman/releases/download/v0.8.1/watchwoman-0.8.1-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "891cf559dd9a31155ca1b23f93906d4f21b1a0e67905d3a8ab934bf17eaf6f95"
+      url "https://github.com/radiosilence/watchwoman/releases/download/v0.8.2/watchwoman-0.8.2-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "e31eb201bebe6ef87589df1c60203d36841d9a37510551988804355d6fe8187a"
     end
   end
 
